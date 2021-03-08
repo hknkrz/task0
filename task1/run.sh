@@ -7,24 +7,17 @@ archive=$4
 mkdir $backup_dir
 for f in $(find  $dir -type f -name "*.$ext")
 do
-cp $f $backup_dir
+if [ -f $f ]
+then
 var1=$(basename $f)
-for j in ${arr[@]}
-do
-var2=$(basename $j)
-if [ "$var1" = "$var2" ];
-then
-if [ "$f" != "$j" ];
-then
-
 filename=$(basename $f)
 len_filename=${#filename}
 full_adress=${f::-$len_filename}
 slash_to_backslash=${f//$slash/\\}
-mv $backup_dir$filename $backup_dir$slash_to_backslash
+cp $f $backup_dir$slash_to_backslash
+else
+cp $f $backup_dir
 fi
-fi
-done
 done
 
 tar -czpf $archive $backup_dir
