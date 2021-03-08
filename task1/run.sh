@@ -5,8 +5,7 @@ ext=$2
 backup_dir=$3
 archive=$4
 mkdir $backup_dir
-arr=($(find  $dir -type f -name "*.$ext"))
-for f in ${arr[@]}
+for f in $(find  $dir -type f -name "*.$ext")
 do
 cp $f $backup_dir
 var1=$(basename $f)
@@ -30,4 +29,3 @@ done
 
 tar -czpf $archive $backup_dir
 echo done
-
