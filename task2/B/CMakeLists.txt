@@ -1,3 +1,3 @@
-cmake_minimum_required(VERSION 3.0)
+cmake_minimum_required(VERSION 3.10)
 project(LIb)
-add_library(Library SHARED lib.cpp)
+add_library(Library lib.cpp)
