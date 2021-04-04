@@ -20,5 +20,4 @@ target_link_libraries(MainLib buffer)
 install(TARGETS Main MainLib buffer
         PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_PREFIX}/include
                 LIBRARY DESTINATION ${CMAKE_INSTALL_PREFIX}/lib)
-        RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX}/bin
-
+        RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
