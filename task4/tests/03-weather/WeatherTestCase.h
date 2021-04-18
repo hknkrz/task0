@@ -1,7 +1,25 @@
-#include <gtest/gtest.h>
+
+#pragma once
 #include "WeatherMock.h"
+#include <gtest/gtest.h>
 
 class WeatherTestCase : public ::testing::Test {
+
+    WeatherMock mw;
+    WeatherMockMock mmw;
+    void Test() {
+        for (int i = 0; i < 1000; ++i) {
+            mw.GetTomorrowTemperature("efsefs");
+            mw.GetTomorrowTemperature("gnffgf");
+            mw.FindDiffBetweenTwoCities(" fgnfgnfg", "rthrthrt");
+            mw.GetDifferenceString("dfsdfs", "sdfsdf");
+            mw.SetApiKey("gngvbrrbr.db,dr");
+            mw.FindDiffBetweenTwoCities("Berlin", "Berlin");
+            mw.GetTomorrowDiff("gnhng");
+
+        }
+        ASSERT_ANY_THROW(mmw.GetDifferenceString("sefsfse", "hrthrth"));
+    }
 };
 
 
