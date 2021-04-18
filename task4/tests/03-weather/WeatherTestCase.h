@@ -4,7 +4,7 @@
 #include <gtest/gtest.h>
 
 class WeatherTestCase : public ::testing::Test {
-
+public:
     WeatherMock mw;
     WeatherMockMock mmw;
     void Test() {
