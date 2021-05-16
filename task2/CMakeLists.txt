@@ -1,0 +1,22 @@
+cmake_minimum_required(VERSION 3.0)
+project(TT2)
+find_package(GTest REQUIRED)
+find_package(Threads REQUIRED)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/bin)
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/lib)
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/lib)
+add_subdirectory(B)
+add_custom_target(Python_file DEPENDS A/index.h)
+execute_process(COMMAND python3 ${PROJECT_SOURCE_DIR}/A/preparing.py
+        WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/A
+)
+add_executable(Cc C/main.h C/main.cpp)
+target_include_directories(Cc PUBLIC ${PROJECT_SOURCE_DIR})
+add_dependencies(Cc Python_file)
+target_link_libraries(Cc Library)
+target_include_directories(Cc PUBLIC ${GTEST_INCLUDE_DIRS})
+add_executable(CTest C/main_test.cpp C/Test_file.cpp)
+target_include_directories(CTest PUBLIC ${PROJECT_SOURCE_DIR})
+add_dependencies(CTest Python_file)
+target_link_libraries(CTest ${GTEST_LIBRARIES} Threads::Threads)
+
