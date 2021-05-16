@@ -5,9 +5,8 @@
 #include "AddTestCase.h"
 #include "Functions.h"
 
-TEST(AddTestCase, addTests
-){
-EXPECT_EQ(2,Add(1,1));
-EXPECT_EQ(-2,Add(3,-5));
+TEST(AddTestCase, addTests) {
+    EXPECT_EQ(2,Add(1,1));
+    EXPECT_EQ(-2,Add(3,-5));
 
 }

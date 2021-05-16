@@ -6,19 +6,15 @@
 class WeatherTestCase : public ::testing::Test {
 public:
     WeatherMock mw;
-    WeatherMockMock mmw;
     void Test() {
-        for (int i = 0; i < 1000; ++i) {
-            mw.GetTomorrowTemperature("efsefs");
-            mw.GetTomorrowTemperature("gnffgf");
-            mw.FindDiffBetweenTwoCities(" fgnfgnfg", "rthrthrt");
-            mw.GetDifferenceString("dfsdfs", "sdfsdf");
-            mw.SetApiKey("gngvbrrbr.db,dr");
-            mw.FindDiffBetweenTwoCities("Berlin", "Berlin");
-            mw.GetTomorrowDiff("gnhng");
-
-        }
-        ASSERT_ANY_THROW(mmw.GetDifferenceString("sefsfse", "hrthrth"));
+        mw.GetTomorrowTemperature("efsefs");
+        mw.GetTomorrowTemperature("gnffgf");
+        mw.FindDiffBetweenTwoCities(" fgnfgnfg", "rthrthrt");
+        mw.GetDifferenceString("dfsdfs", "sdfsdf");
+        mw.SetApiKey("gngvbrrbr.db,dr");
+        mw.FindDiffBetweenTwoCities("Berlin", "Berlin");
+        mw.GetTomorrowDiff("gnhng");
+        ASSERT_ANY_THROW(mw.GetDifferenceString("sefsfse", "hrthrth"));
     }
 };
 

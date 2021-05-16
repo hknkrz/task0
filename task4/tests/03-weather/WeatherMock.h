@@ -7,8 +7,7 @@ class WeatherMock : public Weather {
 public:
     cpr::Response Get(const std::string& city, const cpr::Url& url) override {
         cpr::Response r;
-        float(rnd() % 1000) / 100.0;
-        r.text = "{\"main\":{\"temp\":" + std::to_string(float(rnd() % 1000) / 100.0) + "},\"list\":[\"\",\"\",\"\",\"\",\"\",\"\",\"\",{\"main\":{\"temp\":" + std::to_string(float(rnd() % 1000) / 100.0) + "}}]}";
+        r.text = "{\"main\":{\"temp\":" + std::to_string(float(5) + "},\"list\":[\"\",\"\",\"\",\"\",\"\",\"\",\"\",{\"main\":{\"temp\":" + std::to_string(8) + "}}]}";
         json j = json::parse(r.text);
         r.status_code = 200;
         return r;

@@ -5,6 +5,6 @@
 #include "WeatherTestCase.h"
 #include "WeatherMock.h"
 
-TEST_F(WeatherTestCase, aslkfjaldf) {
-Test();
+TEST_F(WeatherTestCase, WeatherTest) {
+    Test();
 }
